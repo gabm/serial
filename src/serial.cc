@@ -1,4 +1,5 @@
 /* Copyright 2012 William Woodall and John Harrison */
+# include <algorithm>
 #ifndef _WIN32
 # include <alloca.h>
 #endif
