@@ -1,7 +1,7 @@
 macro(build_serial)
 
   ## Project Setup
-  cmake_minimum_required(VERSION 2.4.6)
+  cmake_minimum_required(VERSION 3.2)
 
   if(COMMAND cmake_policy)
       cmake_policy(SET CMP0003 NEW)
@@ -158,9 +158,11 @@ macro(build_serial)
           TARGET  uninstall
         )
       ENDIF(UNIX)
+	cmake_make_installation(
+	        TARGET ${PROJECT_NAME}
+	        IS_EXECUTABLE)
+
   ENDIF(NOT SERIAL_DONT_CONFIGURE_INSTALL)
 endmacro(build_serial)
 
-cmake_make_installation(
-        TARGETS ${PROJECT_NAME}
-        IS_EXECUTABLE)
+
