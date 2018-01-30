@@ -43,6 +43,9 @@ macro(build_serial)
       set(BUILD_SHARED_LIBS OFF)
   ENDIF(NOT BUILD_SHARED_LIBS)
 
+  FIND_PACKAGE(ld-cmake-tools REQUIRED)
+  include(${LD_CMAKE_TOOLS_USE_FILE})
+
   # Threading libraries added for mutexs
   FIND_PACKAGE (Threads)
 
@@ -157,3 +160,7 @@ macro(build_serial)
       ENDIF(UNIX)
   ENDIF(NOT SERIAL_DONT_CONFIGURE_INSTALL)
 endmacro(build_serial)
+
+cmake_make_installation(
+        TARGETS ${PROJECT_NAME}
+        IS_EXECUTABLE)
